@@ -24,8 +24,6 @@ namespace Robot.Controllers
         public async Task<ActionResult<List<MoodEntry>>> GetMoodEntries()
         {
             var moods = await _context.MoodEntries
-                .AsNoTracking()
-                .OrderByDescending(m => m.Tidpunkt)
                 .ToListAsync();
 
             if (moods.Count == 0)
